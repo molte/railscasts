@@ -1,6 +1,6 @@
 module CommentsHelper
   def format_comment(content)
-    simple_format(keep_spaces_at_beginning(h(content)))
+    textilize(keep_spaces_at_beginning(content), :filter_markup => true)
   end
   
   def keep_spaces_at_beginning(content)

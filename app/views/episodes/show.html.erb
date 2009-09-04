@@ -7,7 +7,7 @@
 <div class="episodes">
   <% render :layout => @episode do %>
     <div class="notes">
-      <%= textilize @episode.notes %>
+      <%= textilize(@episode.notes, :allow_code => true) %>
     </div>
     <div id="episode_nav">
     <% unless @episode.first? %>
