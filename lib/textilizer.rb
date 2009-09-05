@@ -1,4 +1,6 @@
 class Textilizer
+  include ActionView::Helpers::TextHelper, ActionView::Helpers::TagHelper
+  
   def initialize(text, options = {})
     @filter_markup = options[:filter_markup] || false
     @allow_code = options[:allow_code] || false
@@ -6,7 +8,7 @@ class Textilizer
   end
   
   def to_html
-    RedCloth.new(formatted_text, restrictions).to_html
+    auto_link(RedCloth.new(formatted_text, restrictions).to_html)
   end
   
   private

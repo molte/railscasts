@@ -40,4 +40,8 @@ describe Textilizer do
   it "should not allow code embed unless options is set" do
     textilize("@@@\nfoo\n@@@").strip.should == "<p>@@@<br />foo<br />@@@</p>"
   end
+  
+  it "should convert urls to html ancher tags" do
+    textilize("This is a link: http://railscasts.com.").should == '<p>This is a link: <a href="http://railscasts.com">http://railscasts.com</a>.</p>'
+  end
 end
